@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEXUS SMP | Cinematic Trailer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--p:#a100ff;--c:#18dfff;--g:#ffc94a}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05010d;color:#fff;font-family:Vazirmatn,Arial}
+.stage{height:100%;position:relative;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#35105a 0,#140522 42%,#030108 100%)}
+.grid{position:absolute;inset:45% -20% -40%;background-image:linear-gradient(#a100ff35 1px,transparent 1px),linear-gradient(90deg,#a100ff35 1px,transparent 1px);background-size:48px 48px;transform:perspective(400px) rotateX(62deg);mask-image:linear-gradient(transparent,#000)}
+.stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#e6aaff;box-shadow:0 0 12px #b000ff;animation:rise linear infinite}
+.ring{position:absolute;width:min(70vw,70vh);aspect-ratio:1;border:2px solid #b52bff9c;border-radius:50%;box-shadow:0 0 35px #9d00ff,inset 0 0 35px #9d00ff;animation:spin 18s linear infinite}
+.ring:before,.ring:after{content:"";position:absolute;inset:9%;border:2px dashed #22dfff88;border-radius:50%}.ring:after{inset:19%;border-color:#ff3ad688}
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:5vw;opacity:0;transform:scale(1.08);transition:1s;pointer-events:none}.scene.on{opacity:1;transform:scale(1);z-index:2}
+.brand{font:900 clamp(55px,13vw,150px) Orbitron,sans-serif;letter-spacing:.06em;color:#fff;text-shadow:0 4px #551080,0 9px #24043d,0 0 22px #b000ff,0 0 65px #8b00ff}.brand small{display:block;font-size:.36em;letter-spacing:.38em;color:#e9d5ff}
+.crown{font-size:clamp(48px,8vw,90px);color:var(--g);filter:drop-shadow(0 0 20px #ffb700);animation:bob 2s infinite}
+.eyebrow{font:700 clamp(11px,1.6vw,20px) Orbitron,sans-serif;letter-spacing:.3em;color:#d8a9ff;margin-bottom:20px}.headline{font:900 clamp(34px,7vw,86px) Orbitron,sans-serif;line-height:1.12;text-shadow:0 0 30px #a100ff}.desc{font-size:clamp(13px,2vw,23px);color:#d8c8ea;margin-top:22px;letter-spacing:.08em}
+.portal{width:clamp(130px,24vw,300px);height:clamp(210px,38vw,430px);border:8px solid #9b20ff;border-radius:50% 50% 12% 12%;box-shadow:0 0 25px #a100ff,inset 0 0 50px #9b20ff;background:repeating-linear-gradient(125deg,#8a00ff33 0 12px,#12dfff22 13px 22px);animation:portal 2s infinite alternate}
+.ranks{display:flex;gap:12px;justify-content:center;margin-top:30px;direction:ltr;flex-wrap:wrap}.rank{min-width:120px;padding:20px 13px;border:1px solid var(--glow);border-radius:14px;background:#10051eeF;box-shadow:0 0 22px color-mix(in srgb,var(--glow),transparent 30%);animation:pop .7s both}.rank b{display:block;font:900 clamp(12px,1.8vw,20px) Orbitron;margin:8px 0}.rank span{font-size:13px;color:#e7d8f5}.gem{font-size:30px;color:var(--glow)}
+.endcard{border:1px solid #b52cff;border-radius:22px;padding:clamp(25px,5vw,60px);background:#090313d9;box-shadow:0 0 45px #9500ff}.handle{font:900 clamp(25px,5vw,55px) Orbitron;color:white;margin-top:24px;text-shadow:0 0 20px #a100ff}
+.toplabel{position:absolute;top:25px;left:0;right:0;text-align:center;color:#b88bd8;letter-spacing:.3em;font:12px Orbitron;z-index:4}.controls{position:absolute;z-index:5;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center}button{border:1px solid #a100ff;background:#160626;color:#fff;border-radius:30px;padding:10px 18px;font-weight:bold;cursor:pointer}button:hover{background:#5c1287}.progress{position:absolute;bottom:0;left:0;height:4px;background:linear-gradient(90deg,#8d00ff,#ff31d2,#19d9ff);z-index:5;width:0}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes bob{50%{transform:translateY(-10px)}}@keyframes portal{to{filter:brightness(1.8);transform:scale(1.04)}}@keyframes pop{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes rise{to{transform:translateY(-120vh);opacity:0}}
+@media(max-width:650px){.ranks{gap:6px}.rank{min-width:90px;padding:12px 7px}.desc{letter-spacing:0}.toplabel{font-size:9px}}
+</style></head>
+<body><main class="stage">
+<div class="grid"></div><div class="ring"></div><div class="stars" id="stars"></div><div class="toplabel">A NEW WORLD IS RISING</div>
+<section class="scene on" data-at="0"><div><div class="eyebrow">WELCOME TO THE NEXT LEVEL</div><div class="crown">♛</div><div class="brand">NEXUS<small>S M P</small></div><div class="desc">YOUR WORLD · YOUR LEGACY</div></div></section>
+<section class="scene" data-at="6"><div><div class="eyebrow">EXPLORE · BUILD · SURVIVE</div><div class="headline">A WORLD<br>WITHOUT LIMITS</div><div class="desc">THE ADVENTURE STARTS HERE</div></div></section>
+<section class="scene" data-at="12"><div style="display:flex;align-items:center;gap:5vw"><div class="portal"></div><div style="text-align:left"><div class="eyebrow">ENTER THE UNKNOWN</div><div class="headline">FIGHT<br>FOR GLORY</div><div class="desc">PVP · ADVENTURE · SMP</div></div></div></section>
+<section class="scene" data-at="19"><div><div class="eyebrow">CHOOSE YOUR STATUS</div><div class="headline">RANK SHOP</div><div class="ranks">
+<div class="rank" style="--glow:#b000ff"><div class="gem">♛</div><b>LEGEND</b><span>250K تومان</span></div>
+<div class="rank" style="--glow:#ff31c8"><div class="gem">♛</div><b>MVP</b><span>150K تومان</span></div>
+<div class="rank" style="--glow:#19dfff"><div class="gem">♛</div><b>VIP</b><span>100K تومان</span></div>
+<div class="rank" style="--glow:#b9c8ff"><div class="gem">♜</div><b>KNIGHT</b><span>75K تومان</span></div>
+<div class="rank" style="--glow:#fff"><div class="gem">♛</div><b>MEMBER</b><span>50K تومان</span></div>
+</div></div></section>
+<section class="scene" data-at="29"><div><div class="crown">♛</div><div class="brand">NEXUS<small>S M P</small></div><div class="desc">UPGRADE YOUR RANK · MAKE YOUR LEGACY</div></div></section>
+<section class="scene" data-at="34"><div class="endcard"><div class="eyebrow">JOIN THE NEXUS COMMUNITY</div><div class="headline">YOUR NEXT<br>ADVENTURE AWAITS</div><div class="handle">BALE: @nexus_smp</div><div class="desc">OFFICIAL COMMUNITY CHANNEL</div></div></section>
+<div class="progress" id="progress"></div><div class="controls"><button id="toggle">Ⅱ توقف</button><button id="restart">↻ شروع دوباره</button><span id="time" style="font:12px Orbitron">00:00 / 00:40</span></div>
+</main>
+<script>
+const scenes=[...document.querySelectorAll('.scene')],bar=document.getElementById('progress'),time=document.getElementById('time');let start=performance.now(),hold=0,paused=false;
+function frame(now){let t=paused?hold:(now-start)/1000;if(t>=40){t=40;hold=40;paused=true;document.getElementById('toggle').textContent='▶ پخش'}let active=0;scenes.forEach((s,i)=>{if(t>=+s.dataset.at)active=i;s.classList.toggle('on',i===active)});bar.style.width=t/40*100+'%';time.textContent='00:'+String(Math.floor(t)).padStart(2,'0')+' / 00:40';if(!paused)requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+document.getElementById('toggle').onclick=()=>{if(paused){start=performance.now()-hold*1000;paused=false;document.getElementById('toggle').textContent='Ⅱ توقف';requestAnimationFrame(frame)}else{hold=(performance.now()-start)/1000;paused=true;document.getElementById('toggle').textContent='▶ پخش'}};
+document.getElementById('restart').onclick=()=>{start=performance.now();hold=0;paused=false;document.getElementById('toggle').textContent='Ⅱ توقف';requestAnimationFrame(frame)};
+for(let i=0;i<70;i++){let p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.top=(60+Math.random()*50)+'%';p.style.animationDuration=(5+Math.random()*9)+'s';p.style.animationDelay=(-Math.random()*12)+'s';document.getElementById('stars').appendChild(p)}
+</script></body></html>
