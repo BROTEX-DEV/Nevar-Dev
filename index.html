@@ -21,6 +21,37 @@
 .toplabel{position:absolute;top:25px;left:0;right:0;text-align:center;color:#b88bd8;letter-spacing:.3em;font:12px Orbitron;z-index:4}.controls{position:absolute;z-index:5;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;align-items:center}button{border:1px solid #a100ff;background:#160626;color:#fff;border-radius:30px;padding:10px 18px;font-weight:bold;cursor:pointer}button:hover{background:#5c1287}.progress{position:absolute;bottom:0;left:0;height:4px;background:linear-gradient(90deg,#8d00ff,#ff31d2,#19d9ff);z-index:5;width:0}
 @keyframes sceneIn{from{opacity:0;transform:scale(1.04)}to{opacity:1;transform:scale(1)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes bob{50%{transform:translateY(-10px)}}@keyframes portal{to{filter:brightness(1.8);transform:scale(1.04)}}@keyframes pop{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}@keyframes rise{to{transform:translateY(-120vh);opacity:0}}
 @media(max-width:650px){.ranks{gap:6px}.rank{min-width:90px;padding:12px 7px}.desc{letter-spacing:0}.toplabel{font-size:9px}}
+
+/* NEXUS SMP visual upgrade */
+.stage{isolation:isolate;background:radial-gradient(ellipse at 50% 42%,#42116d 0,#1b0830 38%,#05010d 78%); }
+.stage:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#05010d9c 0%,transparent 24%,transparent 72%,#05010dba 100%),repeating-linear-gradient(0deg,#ffffff05 0 1px,transparent 1px 4px);mix-blend-mode:screen}
+.stage:after{content:"";position:absolute;inset:-30%;z-index:0;pointer-events:none;background:conic-gradient(from 20deg,transparent,#8c00ff20,transparent,#00d9ff15,transparent);filter:blur(65px);animation:nebula 18s linear infinite}
+.grid{opacity:.62}
+.ring{opacity:.75;filter:drop-shadow(0 0 16px #a100ff)}
+.toplabel{top:22px;left:50%;right:auto;transform:translateX(-50%);width:max-content;max-width:90%;padding:10px 19px;border:1px solid #c47aff55;border-radius:30px;background:#10051eaa;backdrop-filter:blur(14px);box-shadow:0 0 25px #9200ff30;letter-spacing:.22em}
+.scene{z-index:2}
+.scene>div{max-width:1100px}
+.brand{background:linear-gradient(180deg,#fff 12%,#e5c5ff 52%,#a64aff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 22px #a100ff88);text-shadow:none}
+.headline{background:linear-gradient(100deg,#fff,#d7a4ff 48%,#6ceaff);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 28px #a100ff35}
+.eyebrow{display:inline-block;padding:8px 15px;border:1px solid #c27aff55;border-radius:30px;background:#17072699;box-shadow:inset 0 0 16px #a100ff18;backdrop-filter:blur(8px)}
+.desc{line-height:1.9;text-shadow:0 2px 12px #000}
+.crown{filter:drop-shadow(0 0 12px #ffc94a) drop-shadow(0 0 35px #ff9d00);animation:bob 2s ease-in-out infinite}
+.portal{position:relative;overflow:hidden;background:radial-gradient(ellipse,#dd9aff66,#420078aa 42%,#090014 72%);box-shadow:0 0 28px #a100ff,inset 0 0 55px #9b20ff,0 0 90px #5c00a966}
+.portal:after{content:"";position:absolute;inset:-40%;background:repeating-conic-gradient(from 0deg,transparent 0 9deg,#d99aff35 10deg 11deg);animation:spin 12s linear infinite}
+.rank{position:relative;overflow:hidden;backdrop-filter:blur(12px);transition:transform .25s,border-color .25s,box-shadow .25s}
+.rank:after{content:"";position:absolute;top:-100%;left:-60%;width:35%;height:300%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,#ffffff28,transparent);animation:shine 4s ease-in-out infinite}
+.rank:hover{transform:translateY(-9px) scale(1.04);box-shadow:0 12px 34px color-mix(in srgb,var(--glow),transparent 25%)}
+.endcard{position:relative;overflow:hidden;backdrop-filter:blur(18px);border-color:#d58aff99;box-shadow:0 0 35px #9500ff66,inset 0 0 35px #9500ff18}
+.endcard:before{content:"";position:absolute;inset:8px;border:1px solid #ffffff16;border-radius:16px;pointer-events:none}
+.handle{display:inline-block;padding:10px 22px;border:1px solid #a100ff99;border-radius:14px;background:#1b082c;box-shadow:0 0 25px #a100ff55}
+.controls{bottom:24px;padding:9px 12px;border:1px solid #bd75ff55;border-radius:40px;background:#090313bb;backdrop-filter:blur(16px);box-shadow:0 8px 35px #0009}
+.controls button{border-color:#b65aff88;background:linear-gradient(135deg,#341052,#150522);transition:transform .2s,box-shadow .2s}
+.controls button:hover{transform:translateY(-2px);box-shadow:0 0 18px #a100ff88}
+.progress{box-shadow:0 0 14px #a100ff,0 0 28px #a100ff88}
+@keyframes nebula{to{transform:rotate(360deg)}}
+@keyframes shine{0%,65%,100%{left:-70%}85%{left:140%}}
+@media(max-width:650px){.toplabel{top:12px;padding:7px 12px;font-size:8px}.controls{bottom:12px;padding:7px 9px}.controls button{padding:8px 12px}.rank:hover{transform:none}}
+
 </style></head>
 <body><main class="stage">
 <div class="grid"></div><div class="ring"></div><div class="stars" id="stars"></div><div class="toplabel">A NEW WORLD IS RISING</div>
