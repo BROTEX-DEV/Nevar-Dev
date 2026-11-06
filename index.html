@@ -50,7 +50,7 @@
 .progress{box-shadow:0 0 14px #a100ff,0 0 28px #a100ff88}
 @keyframes nebula{to{transform:rotate(360deg)}}
 @keyframes shine{0%,65%,100%{left:-70%}85%{left:140%}}
-@media(max-width:650px){.toplabel{top:12px;padding:7px 12px;font-size:8px}.controls{bottom:12px;padding:7px 9px}.controls button{padding:8px 12px}.rank:hover{transform:none}}
+@media(max-width:650px){.toplabel{top:12px;padding:7px 12px;font-size:8px}.controls{bottom:12px;padding:7px 9px;gap:6px}.controls button{padding:8px 10px;font-size:11px}.controls span{font-size:9px!important}.rank:hover{transform:none}.hud{top:54px!important}}\n.hud{position:absolute;z-index:5;top:78px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 15px;border:1px solid #b65aff55;border-radius:30px;background:#090313aa;backdrop-filter:blur(12px);font:700 10px Orbitron;color:#e9d5ff;letter-spacing:.16em;white-space:nowrap}.hud-dot{width:7px;height:7px;border-radius:50%;background:#2cffbd;box-shadow:0 0 12px #2cffbd;animation:pulseDot 1.3s infinite}.hud-sep{color:#8753a7}.progress{cursor:pointer;height:6px;transition:height .15s}.progress:hover{height:10px}@keyframes pulseDot{50%{opacity:.35;box-shadow:0 0 2px #2cffbd}}
 
 </style></head>
 <body><main class="stage">
@@ -67,13 +67,17 @@
 </div></div></section>
 <section class="scene" data-at="29"><div><div class="crown">♛</div><div class="brand">NEXUS<small>S M P</small></div><div class="desc">UPGRADE YOUR RANK · MAKE YOUR LEGACY</div></div></section>
 <section class="scene" data-at="34"><div class="endcard"><div class="eyebrow">JOIN THE NEXUS COMMUNITY</div><div class="headline">YOUR NEXT<br>ADVENTURE AWAITS</div><div class="handle">BALE: @nexus_smp</div><div class="desc">OFFICIAL COMMUNITY CHANNEL</div></div></section>
-<div class="progress" id="progress"></div><div class="controls"><button id="toggle">Ⅱ توقف</button><button id="restart">↻ شروع دوباره</button><span id="time" style="font:12px Orbitron">00:00 / 00:40</span></div>
+<div class="hud"><span class="hud-dot"></span><span id="sceneName">INTRO</span><span class="hud-sep">/</span><span id="sceneCount">01 — 06</span></div><div class="progress" id="progress" title="برای رفتن به بخش دلخواه لمس کن"></div><div class="controls"><button id="toggle">Ⅱ توقف</button><button id="restart">↻ از اول</button><button id="fullscreen">⛶ تمام‌صفحه</button><span id="time" style="font:12px Orbitron">00:00 / 00:40</span></div>
 </main>
 <script>
-const scenes=[...document.querySelectorAll('.scene')],bar=document.getElementById('progress'),time=document.getElementById('time');let start=performance.now(),hold=0,paused=false;
-function frame(now){let t=paused?hold:(now-start)/1000;if(t>=40){t=40;hold=40;paused=true;document.getElementById('toggle').textContent='▶ پخش'}let active=0;scenes.forEach((s,i)=>{if(t>=+s.dataset.at)active=i;s.classList.toggle('on',i===active)});bar.style.width=t/40*100+'%';time.textContent='00:'+String(Math.floor(t)).padStart(2,'0')+' / 00:40';if(!paused)requestAnimationFrame(frame)}
+const scenes=[...document.querySelectorAll('.scene')],bar=document.getElementById('progress'),time=document.getElementById('time'),sceneName=document.getElementById('sceneName'),sceneCount=document.getElementById('sceneCount');let start=performance.now(),hold=0,paused=false,activeScene=0;const names=['INTRO','EXPLORE','PORTAL','RANK SHOP','LEGACY','COMMUNITY'];
+function seek(t){hold=Math.max(0,Math.min(40,t));start=performance.now()-hold*1000;paused=false;document.getElementById('toggle').textContent='Ⅱ توقف';frame(performance.now())}
+function frame(now){let t=paused?hold:(now-start)/1000;if(t>=40){t=40;hold=40;paused=true;document.getElementById('toggle').textContent='▶ پخش'}let active=0;scenes.forEach((s,i)=>{if(t>=+s.dataset.at)active=i;s.classList.toggle('on',i===active)});activeScene=active;sceneName.textContent=names[active];sceneCount.textContent=String(active+1).padStart(2,'0')+' — 06';bar.style.width=t/40*100+'%';time.textContent='00:'+String(Math.floor(t)).padStart(2,'0')+' / 00:40';if(!paused)requestAnimationFrame(frame)}
 requestAnimationFrame(frame);
 document.getElementById('toggle').onclick=()=>{if(paused){start=performance.now()-hold*1000;paused=false;document.getElementById('toggle').textContent='Ⅱ توقف';requestAnimationFrame(frame)}else{hold=(performance.now()-start)/1000;paused=true;document.getElementById('toggle').textContent='▶ پخش'}};
-document.getElementById('restart').onclick=()=>{start=performance.now();hold=0;paused=false;document.getElementById('toggle').textContent='Ⅱ توقف';requestAnimationFrame(frame)};
+document.getElementById('restart').onclick=()=>seek(0);
+document.getElementById('fullscreen').onclick=()=>{if(!document.fullscreenElement)document.querySelector('.stage').requestFullscreen?.();else document.exitFullscreen?.()};
+bar.addEventListener('click',e=>{const r=bar.getBoundingClientRect();seek((e.clientX-r.left)/r.width*40)});
+document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();document.getElementById('toggle').click()}if(e.code==='ArrowRight')seek(hold+5);if(e.code==='ArrowLeft')seek(hold-5);if(e.key.toLowerCase()==='f')document.getElementById('fullscreen').click()});
 for(let i=0;i<70;i++){let p=document.createElement('i');p.style.left=Math.random()*100+'%';p.style.top=(60+Math.random()*50)+'%';p.style.animationDuration=(5+Math.random()*9)+'s';p.style.animationDelay=(-Math.random()*12)+'s';document.getElementById('stars').appendChild(p)}
 </script></body></html>
